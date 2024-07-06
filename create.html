@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Create Recipe</title>
+  </head>
+  <body>
+    <nav class="navbar sticky-top navbar-light">
+      <a class="navbar-brand" href="index.html">
+        <img
+          class="image-medium mr-2"
+          src="Resources/Images/meal-food-icon.png"
+          alt=""
+        />
+        What To Eat
+      </a>
+    </nav>
+
+    <div class="container">
+      <h1 class="display-2 text-center my-2">Add New Recipe</h1>
+      <form id="recipe-form" class="mb-2">
+        <div class="row">
+          <div class="col-4">
+            <div class="form-group">
+              <div class="row">
+                <label for="recipeImage">Recipe Image</label>
+              </div>
+              <div class="row">
+                <img
+                  class="img-thumbnail thumbnail"
+                  id="thumbnail"
+                  src="Resources/Images/placeholder images.png"
+                  alt=""
+                />
+              </div>
+              <dov class="row">
+                <input
+                  type="file"
+                  class="form-control-file"
+                  id="recipeImage"
+                  name="recipeImage"
+                  onchange="OnImageSelected(event)"
+                />
+              </dov>
+            </div>
+          </div>
+          <div class="col-8">
+            <div class="form-group">
+              <label for="recipeTitle">Recipe Title</label>
+              <input
+                type="text"
+                class="form-control"
+                id="recipeTitle"
+                name="recipeTitle"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="preparationTime">Preparation Time (minutes)</label>
+              <input
+                type="number"
+                class="form-control"
+                id="preparationTime"
+                name="preparationTime"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <label for="ingredients">Ingredients</label>
+              </div>
+              <div class="row">
+                <select
+                  class="multiple-ingridient-select"
+                  name="states[]"
+                  multiple="multiple"
+                ></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <label for="tags">Tags</label>
+              </div>
+              <div class="row">
+                <select
+                  class="multiple-tags-select"
+                  name="states[]"
+                  multiple="multiple"
+                ></select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group mt-3">
+          <label for="description">Description</label>
+          <textarea
+            class="form-control"
+            id="description"
+            name="description"
+            rows="6"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-secondary">Reset</button>
+      </form>
+    </div>
+
+    <footer
+      class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top"
+    >
+      <div class="col-md-4 d-flex align-items-center">
+        <a
+          class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1 mx-3"
+          href="#"
+        >
+          <img
+            class="image-small"
+            src="Resources/Images/meal-food-icon.png"
+            alt=""
+          />
+        </a>
+
+        <span class="mb-3 mb-md-0 ml-2 text-body-secondary"
+          >© Filip Szymańczyk</span
+        >
+      </div>
+
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex mx-3">
+        <li class="ms-3">
+          <a
+            class="text-body-secondary"
+            href="https://www.linkedin.com/in/filip-szymanczyk/"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                class="accent"
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+              />
+            </svg>
+          </a>
+        </li>
+
+        <li class="ms-3 mr-2">
+          <a class="text-body-secondary accent" href="https://github.com/Mr-Bronzodia">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+              />
+            </svg>
+          </a>
+        </li>
+
+        <li class="ms-3 mr-2">
+          <a class="text-body-secondary accent" href="mailto:filipq6@gmail.com">
+            <svg
+              width="24"
+              height="24"
+              xmlns="http://www.w3.org/2000/svg"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+            >
+              <path
+                d="M22.288 21h-20.576c-.945 0-1.712-.767-1.712-1.712v-13.576c0-.945.767-1.712 1.712-1.712h20.576c.945 0 1.712.767 1.712 1.712v13.576c0 .945-.767 1.712-1.712 1.712zm-10.288-6.086l-9.342-6.483-.02 11.569h18.684v-11.569l-9.322 6.483zm8.869-9.914h-17.789l8.92 6.229s6.252-4.406 8.869-6.229z"
+              />
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </footer>
+
+    <script src="create.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
