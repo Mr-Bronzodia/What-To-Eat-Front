@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const recipeID = urlParams.get("id");
 
   if (recipeID) {
-    fetch(`http://localhost:5112/recipes/${recipeID}`, {
+    fetch(`https://whattoeatapi.azurewebsites.net/recipes/${recipeID}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
           .setAttribute("value", data.prepTime);
         document.getElementById("description").innerHTML = data.descrition;
 
-        fetch("http://localhost:5112/ingredients", {
+        fetch("https://whattoeatapi.azurewebsites.net/ingredients", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
           })
           .catch((error) => console.error("Error fetching recipes:", error));
 
-        fetch("http://localhost:5112/tags", {
+        fetch("https://whattoeatapi.azurewebsites.net/tags", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
           var jsonData = JSON.stringify(recipeObject);
           console.log(recipeObject);
 
-          fetch(`http://localhost:5112/recipes/${recipeID}`, {
+          fetch(`https://whattoeatapi.azurewebsites.net/recipes/${recipeID}`, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",

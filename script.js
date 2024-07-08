@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("http://localhost:5112/ingredients", {
+  fetch("https://whattoeatapi.azurewebsites.net/ingredients", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch((error) => console.error("Error fetching recipes:", error));
 
-  fetch("http://localhost:5112/tags", {
+  fetch("https://whattoeatapi.azurewebsites.net/tags", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const recipesContainer = document.getElementById("recipe-container");
-  fetch("http://localhost:5112/recipes", {
+  fetch("https://whattoeatapi.azurewebsites.net/recipes", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -67,7 +67,7 @@ function onSearchChanged() {
   var searchValue = document.getElementById("search-bar").value;
   console.log(searchValue);
 
-  fetch("http://localhost:5112/recipes", {
+  fetch("https://whattoeatapi.azurewebsites.net/recipes", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -102,7 +102,7 @@ function onFiltersChanged() {
       tags.push(element.text);
     });
 
-  fetch("http://localhost:5112/recipes", {
+  fetch("https://whattoeatapi.azurewebsites.net/recipes", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -189,7 +189,7 @@ function createCard(recipe) {
       e.preventDefault();
       console.log(`Remove action for recipe id: ${recipe.id}`);
 
-      fetch(`http://localhost:5112/recipes/${recipe.id}`, {
+      fetch(`https://whattoeatapi.azurewebsites.net/recipes/${recipe.id}`, {
         method: "DELETE",
       });
 
@@ -208,7 +208,12 @@ function createCard(recipe) {
   cardBody.appendChild(cardTime);
 
   const cardTags = document.createElement("p");
-  cardTags.classList.add("card-text", "text-truncate", "font-weight-light", "text-secondary");
+  cardTags.classList.add(
+    "card-text",
+    "text-truncate",
+    "font-weight-light",
+    "text-secondary"
+  );
   cardTags.textContent = recipe.tags.join(" ");
   cardBody.appendChild(cardTags);
 

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("http://localhost:5112/ingredients", {
+  fetch("https://whattoeatapi.azurewebsites.net/ingredients", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch((error) => console.error("Error fetching recipes:", error));
 
-  fetch("http://localhost:5112/tags", {
+  fetch("https://whattoeatapi.azurewebsites.net/tags", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     var jsonData = JSON.stringify(recipeObject);
 
-    fetch(`http://localhost:5112/recipes`, {
+    fetch(`https://whattoeatapi.azurewebsites.net/recipes`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

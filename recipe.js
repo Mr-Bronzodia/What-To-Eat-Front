@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const recipeID = urlParams.get("id");
 
   if (recipeID) {
-    fetch(`http://localhost:5112/recipes/${recipeID}`, {
+    fetch(`https://whattoeatapi.azurewebsites.net/recipes/${recipeID}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
